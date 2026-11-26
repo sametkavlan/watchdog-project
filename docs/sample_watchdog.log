@@ -1,0 +1,36 @@
+[2026-11-26 18:53:37] [INFO] Watchdog started (PID=8874, log=docs/sample_watchdog.log, max_restarts=3, check_interval=2s, shutdown_timeout=2s).
+[2026-11-26 18:53:37] [INFO] Started child 'worker-1' with PID 8876 (mode=normal, duration=0s).
+[2026-11-26 18:53:37] [INFO] Started child 'worker-2' with PID 8877 (mode=exit-ok, duration=1s).
+[2026-11-26 18:53:37] [INFO] Started child 'worker-3' with PID 8878 (mode=ignore-term, duration=0s).
+[2026-11-26 18:53:38] [INFO] Child 'worker-2' (PID 8877) exited normally with exit code 0; not restarting.
+[2026-11-26 18:53:39] [INFO] Periodic health check (SIGALRM): running=2, exited_normal=1, failed=0, total=3.
+[2026-11-26 18:53:39] [STATUS] === Status Report (SIGUSR1) | Watchdog PID: 8874 | Running: 2/3 ===
+[2026-11-26 18:53:39] [STATUS]   - worker-1     | PID: 8876    | State: RUNNING       | Restarts: 0/3 | Uptime: 2s
+[2026-11-26 18:53:39] [STATUS]   - worker-2     | PID: 8877    | State: EXITED_NORMAL | Restarts: 0/3 | LastExit: 0
+[2026-11-26 18:53:39] [STATUS]   - worker-3     | PID: 8878    | State: RUNNING       | Restarts: 0/3 | Uptime: 2s
+[2026-11-26 18:53:39] [STATUS] === End of Status Report ===
+[2026-11-26 18:53:39] [WARN] Child 'worker-1' (PID 8876) terminated unexpectedly by signal 9 (SIGKILL).
+[2026-11-26 18:53:39] [INFO] Scheduling automatic restart for 'worker-1' (attempt 1/3).
+[2026-11-26 18:53:39] [INFO] Restarted child 'worker-1' with new PID 8891 (mode=normal, restart 1/3).
+[2026-11-26 18:53:40] [WARN] Child 'worker-1' (PID 8891) terminated unexpectedly by signal 9 (SIGKILL).
+[2026-11-26 18:53:40] [INFO] Scheduling automatic restart for 'worker-1' (attempt 2/3).
+[2026-11-26 18:53:40] [INFO] Restarted child 'worker-1' with new PID 8897 (mode=normal, restart 2/3).
+[2026-11-26 18:53:40] [WARN] Child 'worker-1' (PID 8897) terminated unexpectedly by signal 9 (SIGKILL).
+[2026-11-26 18:53:40] [INFO] Scheduling automatic restart for 'worker-1' (attempt 3/3).
+[2026-11-26 18:53:40] [INFO] Restarted child 'worker-1' with new PID 8903 (mode=normal, restart 3/3).
+[2026-11-26 18:53:40] [WARN] Child 'worker-1' (PID 8903) terminated unexpectedly by signal 9 (SIGKILL).
+[2026-11-26 18:53:40] [ERROR] Child 'worker-1' exceeded maximum restart limit (3/3); stopping retries.
+[2026-11-26 18:53:41] [INFO] Periodic health check (SIGALRM): running=1, exited_normal=1, failed=1, total=3.
+[2026-11-26 18:53:41] [STATUS] === Status Report (SIGUSR1) | Watchdog PID: 8874 | Running: 1/3 ===
+[2026-11-26 18:53:41] [STATUS]   - worker-1     | PID: 8903    | State: FAILED        | Restarts: 3/3 | LastSignal: 9
+[2026-11-26 18:53:41] [STATUS]   - worker-2     | PID: 8877    | State: EXITED_NORMAL | Restarts: 0/3 | LastExit: 0
+[2026-11-26 18:53:41] [STATUS]   - worker-3     | PID: 8878    | State: RUNNING       | Restarts: 0/3 | Uptime: 4s
+[2026-11-26 18:53:41] [STATUS] === End of Status Report ===
+[2026-11-26 18:53:41] [INFO] Received shutdown signal 15 (SIGTERM); initiating graceful shutdown.
+[2026-11-26 18:53:41] [INFO] Graceful shutdown: sending SIGTERM to 1 running child process(es) (timeout=2s).
+[2026-11-26 18:53:41] [INFO] Sent SIGTERM to child 'worker-3' (PID 8878).
+[2026-11-26 18:53:43] [WARN] Shutdown timeout (2s) expired with 1 child(ren) still running; sending SIGKILL.
+[2026-11-26 18:53:43] [WARN] Sent SIGKILL to unresponsive child 'worker-3' (PID 8878).
+[2026-11-26 18:53:43] [INFO] Child 'worker-3' (PID 8878) terminated during shutdown by signal 9 (SIGKILL).
+[2026-11-26 18:53:43] [INFO] Graceful shutdown complete: all child processes terminated and reaped.
+[2026-11-26 18:53:43] [INFO] Watchdog (PID=8874) exiting cleanly.

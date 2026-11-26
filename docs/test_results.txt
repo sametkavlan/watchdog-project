@@ -1,0 +1,45 @@
+============================================================
+ Watchdog POSIX Process Supervision - Automated Test Suite
+============================================================
+
+--- Scenario 1, 5 & 6a: Normal Operation, SIGALRM, SIGUSR1, SIGTERM ---
+[PASS] Scenario 1: Watchdog started >=2 live worker processes (PIDs 8640, 8641)
+[PASS] Scenario 1b: Periodic SIGALRM health check detected 2 running children
+[PASS] Scenario 5a: SIGUSR1 triggered status report header with Watchdog PID
+[PASS] Scenario 5b: SIGUSR1 reported worker-1 PID and RUNNING state
+[PASS] Scenario 5c: SIGUSR1 reported worker-2 PID and RUNNING state
+[PASS] Scenario 6a: Watchdog exited with code 0 on SIGTERM
+[PASS] Scenario 6a: All child processes terminated and reaped after SIGTERM
+[PASS] Scenario 6a: Log recorded SIGTERM graceful shutdown initiation
+[PASS] Scenario 6a: Log recorded graceful shutdown completion
+
+--- Scenario 2: Normal Termination ---
+[PASS] Scenario 2a: Normal termination (exit 0) detected and not restarted
+[PASS] Scenario 2b: Verified worker-2 was never restarted after normal exit
+[PASS] Scenario 2c: Status report reflects EXITED_NORMAL for worker-2
+
+--- Scenario 3 & 4: Unexpected Termination & Restart Limit (max 3) ---
+[PASS] Scenario 3/4: SIGKILL #1 detected; worker-1 restarted (1/3) with new PID 8722
+[PASS] Scenario 3/4: SIGKILL #2 detected; worker-1 restarted (2/3) with new PID 8732
+[PASS] Scenario 3/4: SIGKILL #3 detected; worker-1 restarted (3/3) with new PID 8742
+[PASS] Scenario 4a: 4th unexpected termination hit restart limit (3/3) and stopped retrying
+[PASS] Scenario 4b: Verified total restarts for worker-1 is exactly 3
+[PASS] Scenario 4c: Status report marks worker-1 as FAILED (3/3)
+
+--- Scenario 3b: Non-zero Exit Code Distinguished from Normal Exit ---
+[PASS] Scenario 3b: Non-zero exit code (1) treated as unexpected, restarted once, then halted at limit
+
+--- Scenario 6b: Graceful Shutdown on SIGINT (Ctrl+C) ---
+[PASS] Scenario 6b: SIGINT (Ctrl+C) cleanly terminated and reaped all children (exit 0)
+[PASS] Scenario 6b: Log recorded SIGINT shutdown signal
+
+--- Scenario 6c: Unresponsive Child Timeout -> SIGKILL Escalation ---
+[PASS] Scenario 6c: Unresponsive child escalated to SIGKILL after timeout and reaped (exit 0)
+[PASS] Scenario 6c: Log recorded SIGKILL escalation for unresponsive child
+
+--- Scenario 7: Log Format & Timestamp Verification ---
+[PASS] Scenario 7: All log records across all scenarios match timestamped POSIX log format
+
+============================================================
+ Summary: 24 PASSED, 0 FAILED
+============================================================
