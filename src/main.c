@@ -89,9 +89,15 @@ static int parse_worker_spec(const char *spec, WorkerSpec *out)
         return -1;
     }
 
+    size_t name_len = strlen(name);
+    size_t mode_len = strlen(mode);
+    if (name_len >= sizeof(out->name) || mode_len >= sizeof(out->mode)) {
+        return -1;
+    }
+
     memset(out, 0, sizeof(*out));
-    snprintf(out->name, sizeof(out->name), "%s", name);
-    snprintf(out->mode, sizeof(out->mode), "%s", mode);
+    memcpy(out->name, name, name_len + 1);
+    memcpy(out->mode, mode, mode_len + 1);
     out->duration_sec = duration;
     return 0;
 }
