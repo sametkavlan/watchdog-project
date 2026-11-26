@@ -2,7 +2,7 @@
 
 **Course:** Sakarya University — Software Engineering Department, SWE-301 System Programming (2026–2027 Fall, Term Project 1)  
 **Repository:** https://github.com/sametkavlan/watchdog-project  
-**Author:** Samet Kavlan (`sametkavlan`)
+**Student:** Samet Kavlan — `B221202374` (`sametkavlan`)
 
 ## Overview
 
