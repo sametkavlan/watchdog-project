@@ -1,0 +1,19 @@
+# Compiled binaries and build artifacts
+watchdog
+worker
+build/
+*.o
+*.d
+
+# Runtime logs and temporary test outputs
+watchdog.log
+*.log
+!docs/sample_watchdog.log
+tests/tmp/
+
+# OS and editor metadata
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
